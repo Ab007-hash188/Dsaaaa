@@ -1,0 +1,55 @@
+=== a) MAX HEAP INSERTION ===
+Insert  45 -> Heap array: [45]
+Insert  72 -> Heap array: [72, 45]
+Insert  30 -> Heap array: [72, 45, 30]
+Insert  90 -> Heap array: [90, 72, 30, 45]
+Insert  65 -> Heap array: [90, 72, 30, 45, 65]
+Insert  50 -> Heap array: [90, 72, 50, 45, 65, 30]
+Insert  85 -> Heap array: [90, 72, 85, 45, 65, 30, 50]
+
+Final Max-Heap array: [90, 72, 85, 45, 65, 30, 50]
+
+=== b) HEAP SORT ===
+Initial array: [45, 72, 30, 90, 65, 50, 85]
+-- Build Max Heap --
+  swap idx2<->idx6: [45, 72, 85, 90, 65, 50, 30]
+  swap idx1<->idx3: [45, 90, 85, 72, 65, 50, 30]
+  swap idx0<->idx1: [90, 45, 85, 72, 65, 50, 30]
+  swap idx1<->idx3: [90, 72, 85, 45, 65, 50, 30]
+Heap built: [90, 72, 85, 45, 65, 50, 30]
+
+-- Extraction phase --
+Swap root with idx6: [30, 72, 85, 45, 65, 50, 90]
+  swap idx0<->idx2: [85, 72, 30, 45, 65, 50]
+  swap idx2<->idx5: [85, 72, 50, 45, 65, 30]
+Swap root with idx5: [30, 72, 50, 45, 65, 85, 90]
+  swap idx0<->idx1: [72, 30, 50, 45, 65]
+  swap idx1<->idx4: [72, 65, 50, 45, 30]
+Swap root with idx4: [30, 65, 50, 45, 72, 85, 90]
+  swap idx0<->idx1: [65, 30, 50, 45]
+  swap idx1<->idx3: [65, 45, 50, 30]
+Swap root with idx3: [30, 45, 50, 65, 72, 85, 90]
+  swap idx0<->idx2: [50, 45, 30]
+Swap root with idx2: [30, 45, 50, 65, 72, 85, 90]
+  swap idx0<->idx1: [45, 30]
+Swap root with idx1: [30, 45, 50, 65, 72, 85, 90]
+
+Final sorted array: [30, 45, 50, 65, 72, 85, 90]
+Heap Sort -> comparisons: 21, swaps: 18
+
+=== b) QUICK SORT (Lomuto partition, last element as pivot) ===
+Initial array: [45, 72, 30, 90, 65, 50, 85]
+  Partition range [0:6], pivot=85
+    swap idx3<->idx4: [45, 72, 30, 65, 90, 50, 85]
+    swap idx4<->idx5: [45, 72, 30, 65, 50, 90, 85]
+    place pivot at idx5: [45, 72, 30, 65, 50, 85, 90]
+  Partition range [0:4], pivot=50
+    swap idx1<->idx2: [45, 30, 72, 65, 50, 85, 90]
+    place pivot at idx2: [45, 30, 50, 65, 72, 85, 90]
+  Partition range [0:1], pivot=30
+    place pivot at idx0: [30, 45, 50, 65, 72, 85, 90]
+  Partition range [3:4], pivot=72
+    place pivot at idx4: [30, 45, 50, 65, 72, 85, 90]
+
+Final sorted array: [30, 45, 50, 65, 72, 85, 90]
+Quick Sort -> comparisons: 12, swaps: 6
